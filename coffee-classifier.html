@@ -19,10 +19,12 @@
 <body>
     <h1>Coffee Classifier</h1>
     <ul>
+        <li><button id="btnPredictVideo">Predict Video</button> Video: <span id="videoResult">...</span> with a confidence of <span id="videoConfidence">...</span></li>
         <li><button id="btnPredictImage">Predict Image</button>Image: <span id="imageResult">...</span> with a confidence of <span id="imageConfidence">...</span></li>
     </ul>
     <h2>Preview</h2>
     <div>
+        <div id="videoContainer"></div>
         <label for="imageTest">Test file</label><input id="imageTest" type="file" name="imageTest" onchange="onChangePreviewTestImage();" /> <button id="clear-imagetest-preview">Clear image test preview</button><br/>
         <img id="imageTestPreview" />
     </div>
@@ -31,10 +33,10 @@
 
     <h2>Train Data</h2>
     <ul>
-        <li>Biji Normal | <button id="addBijiNormalBatch">Image Batch</button> | <span id="exampleBijiNormal">0</span> examples | Confidence: <span id="confidenceBijiNormal">0</span></li>
-        <li>Biji Bolong | <button id="addBijiBolongBatch">Image Batch</button> | <span id="exampleBijiBolong">0</span> examples | Confidence: <span id="confidenceBijiBolong">0</span></li>
-        <li>Biji Hitam | <button id="addBijiHitamBatch">Image Batch</button> | <span id="exampleBijiHitam">0</span> examples | Confidence: <span id="confidenceBijiHitam">0</span></li>
-        <li>Biji Pecah | <button id="addBijiPecahBatch">Image Batch</button> | <span id="exampleBijiPecah">0</span> examples | Confidence: <span id="confidenceBijiPecah">0</span></li>
+        <li>Biji Normal<button id="addBijiNormal">Video</button> | <button id="addBijiNormalBatch">Image Batch</button> | <span id="exampleBijiNormal">0</span> examples | Confidence: <span id="confidenceBijiNormal">0</span></li>
+        <li>Biji Bolong<button id="addBijiBolong">Video</button> | <button id="addBijiBolongBatch">Image Batch</button> | <span id="exampleBijiBolong">0</span> examples | Confidence: <span id="confidenceBijiBolong">0</span></li>
+        <li>Biji Hitam<button id="addBijiHitam">Video</button> | <button id="addBijiHitamBatch">Image Batch</button> | <span id="exampleBijiHitam">0</span> examples | Confidence: <span id="confidenceBijiHitam">0</span></li>
+        <li>Biji Pecah<button id="addBijiPecah">Video</button> | <button id="addBijiPecahBatch">Image Batch</button> | <span id="exampleBijiPecah">0</span> examples | Confidence: <span id="confidenceBijiPecah">0</span></li>
     </ul>
     <h2>Training Data Preview</h2>
     <div id="imageTrainPreview"></div>
@@ -48,7 +50,7 @@
 
     <p><button id="clearAll">Clear all classes</button></p>
 
-    <script src="./js/sketch-image.js"></script>
+    <script src="./js/sketch.js"></script>
 </body>
 
 </html>
