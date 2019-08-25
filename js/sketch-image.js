@@ -27,14 +27,14 @@ function modelReady() {
 function onChangePreviewTestImage() {
     let files = document.getElementById("imageTest").files;
     imageFiles(files, imageTestPreview);
-    status.innerText = "Image Test Preview";
+    status.innerHTML = "Image Test Preview";
 }
 
 //Preview for training data
 function onChangePreviewTrainImage() {
     let files = document.getElementById("imageTrain").files;
     imageFiles(files, imageTrainPreview);
-    status.innerText = "Image Train Preview";
+    status.innerHTML = "Image Train Preview";
 }
 
 // <!-- Preview image script -->
@@ -181,9 +181,12 @@ function gotResultsImage(err, result) {
     }
 
     if (result.confidencesByLabel) {
+        console.log(result);
         const confidences = result.confidencesByLabel;
         // result.label is the label that has the highest confidence
         if (result.label) {
+            status.innerHTML += "<br/>" + result.label + " | ";
+            status.innerHTML += confidences[result.label] * 100 + " %";
             select('#imageResult').html(result.label);
             select('#imageConfidence').html(`${confidences[result.label] * 100} %`);
         }
