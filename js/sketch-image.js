@@ -25,8 +25,8 @@ function modelReady() {
 //Preview for image
 //Preview for test data
 function onChangePreviewTestImage() {
-    let file = document.getElementById("imageTest").files[0];
-    previewImage(file, imageTestPreview);
+    let files = document.getElementById("imageTest").files;
+    imageFiles(files, imageTestPreview);
     status.innerText = "Image Test Preview";
 }
 
@@ -123,6 +123,14 @@ function classifyImage(framesource) {
     // gotResults(null, res);
 }
 
+function classifyImages(framesources) {
+    let imgdata = framesources.querySelectorAll("img");
+    for (let i = 0; i < imgdata.length; i++) {
+        console.log(i);
+        classifyImage(imgdata[i]);
+    }
+};
+
 
 // A util function to create UI buttons
 function createButtons() {
@@ -150,7 +158,7 @@ function createButtons() {
     // Predict button
     buttonPredictImage = select('#btnPredictImage');
     buttonPredictImage.mousePressed(function() {
-        classifyImage(imageTestPreview);
+        classifyImages(imageTestPreview);
     });
 
     // Clear all classes button

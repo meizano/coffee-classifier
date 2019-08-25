@@ -18,16 +18,17 @@
 
 <body>
     <h1>Coffee Classifier</h1>
+    
+    <p>Status: <span id="status">Loading Model...</span></p>
+
     <ul>
         <li><button id="btnPredictImage">Predict Image</button>Image: <span id="imageResult">...</span> with a confidence of <span id="imageConfidence">...</span></li>
     </ul>
     <h2>Preview</h2>
     <div>
-        <label for="imageTest">Test file</label><input id="imageTest" type="file" name="imageTest" onchange="onChangePreviewTestImage();" /> <button id="clear-imagetest-preview">Clear image test preview</button><br/>
-        <img id="imageTestPreview" />
+        <label for="imageTest">Test file(s)</label><input id="imageTest" type="file" name="imageTest" multiple onchange="onChangePreviewTestImage();" /> <button id="clear-imagetest-preview">Clear image test preview</button><br/>
+        <div id="imageTestPreview"></div>
     </div>
-
-    <p>Status: <span id="status">Loading Model...</span></p>
 
     <h2>Train Data</h2>
     <ul>
