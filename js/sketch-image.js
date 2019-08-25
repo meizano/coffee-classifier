@@ -102,6 +102,8 @@ function addExamples(framesources, label) {
 }
 
 function classifyImage(framesource) {
+    
+    
     // Get the total number of labels from knnClassifier
     const numLabels = knnClassifier.getNumLabels();
     if (numLabels <= 0) {
@@ -126,8 +128,17 @@ function classifyImage(framesource) {
 function classifyImages(framesources) {
     let imgdata = framesources.querySelectorAll("img");
     for (let i = 0; i < imgdata.length; i++) {
+        
         console.log(i);
+        status.innerHTML += "<br/>" + (i+1) + ". ";
+        let t0 = performance.now();
+
         classifyImage(imgdata[i]);
+        
+        let t1 = performance.now();
+        let time = (t1 - t0) + " ms ";
+        console.log(time);
+        status.innerHTML += time;
     }
 };
 
